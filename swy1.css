@@ -1,0 +1,579 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins" , sans-serif;
+    background: #fff7f8;
+    color: #5b3d46;
+    overflow-x: hidden;
+ }
+
+ body::before {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: #f8dfe6;
+    border-radius: 50%;
+    filter: blur(100px);
+    top: -150px;
+    left: -150px;
+    opacity: 0.6;
+    z-index: -2;
+ }
+
+ body::after {
+    content: "";
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    background: #eadff2;
+    border-radius: 50%;
+    filter: blur(100px);
+    bottom: -150px;
+    right: -120px;
+    opacity: 0.5;
+    z-index: -2;
+ }
+
+ .decorations span {
+    position: fixed;
+    color: #d69aa9;
+    opacity: 0.35;
+    font-size: 20px;
+    pointer-events: none;
+    z-index: -1;
+ }
+
+ .decorations span:nth-child(1) {
+    top: 12%;
+    left: 8%;
+ }
+
+ .decorations span:nth-child(2) {
+    top: 25%;
+    left: 9%;
+ }
+
+.decorations span:nth-child(3) {
+    top: 50%;
+    left: 5%;
+ }
+
+.decorations span:nth-child(4) {
+    top: 67%;
+    left: 7%;
+ }
+
+.decorations span:nth-child(5) {
+    top: 82%;
+    left: 10%;
+ }
+
+.decorations span:nth-child(6) {
+    top: 90%;
+    left: 15%;
+ }
+
+ main {
+    width: 100%;
+ }
+
+ section {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    padding: 80px 20px;
+ }
+
+ .section-label {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #b47c8a;
+    margin-bottom: 25px;
+ }
+
+ .hero {
+    min-height: 100vh;
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+ }
+
+ .tiny-little {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #b27d88;
+    margin-bottom: 20px;
+ }
+
+.hero h1 {
+    font-family: "Playfair Display" serif;
+    font-size: clamp(65px, 16vw, 110px);
+    line-height: 0.85;
+    color: #6e4652;
+}
+
+.hero h1 span {
+    color: #b36f80;
+    font-style: italic;
+}
+
+.artist {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #9b7881;
+}
+
+.album-wrapper {
+    position: relative;
+    margin: 45px 0 35px;
+}
+
+.album {
+    width: 320px;
+    height: 320px;
+    padding: 8px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 20px 50px rgba(100, 55, 70, 0.15);
+    animation: floating 4s ease-in-out infinite;
+}
+
+.album img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.music-note {
+    position: absolute;
+    top: 10px;
+    right: -15px;
+    width: 42px;
+    height: 42px;
+    background: #f0cbd5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transform: rotate(10deg);
+}
+
+.mini-heart {
+    position: absolute;
+    bottom: 15px;
+    left: -15px;
+    width: 45px;
+    height: 45px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b36f80;
+    font-size: 22px;
+    box-shadow: 0 8px 20px rgba(100, 55, 70, 0.1);
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+}
+
+.player {
+    width: 100%;
+    max-width: 470px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #f1dfe4;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 15px 40px rgba(100, 55, 70, 0.08);
+}
+
+.song-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.song-info h3 {
+    font-size: 14px;
+}
+
+.song-info p {
+    font-size: 10px;
+    color: #a0848b;
+    margin-top: 3px;
+}
+
+.song-info > span {
+    color: #c77f91;
+    font-size: 22px;
+}
+
+.progress-area {
+    height: 5px;
+    background: #f1e5e8;
+    border-radius: 20px;
+    margin-top: 22px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: #b36f80;
+    border-radius: 20px;
+}
+
+.time {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    font-size: 9px;
+    color: #ad9299;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    margin-top: 14px;
+}
+
+.controls button {
+    border: none;
+    background: none;
+    color: #805361;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.controls .play {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #8e5665;
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.controls .play:hover {
+    transform: scale(1.08);
+}
+
+.scroll-text {
+    margin-top: 35px;
+    font-size: 10px;
+    color: #b5959d;
+    animation: bounce 1.8s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(6px);
+    }
+}
+
+.message-section {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.message-box {
+    position: relative;
+    background: #f4e4e9;
+    border-radius: 30px;
+    padding: 55px 35px;
+    text-align: center;
+}
+
+.quote {
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    font-family: serif;
+    font-size: 80px;
+    color: #d29eaa;
+    opacity: 0.5;
+}
+
+.message-box h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    line-height: 1.45;
+    font-weight: 600;
+    color: #704652;
+}
+
+.message-box h2 span {
+    color: #b36f80;
+    font-style: italic;
+}
+
+.message-box p {
+    margin-top: 22px;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #92717a;
+}
+
+.small-heart {
+    display: block;
+    margin-top: 25px;
+    color: #b36f80;
+    font-size: 20px;
+}
+
+.ineractive {
+    min-height: 70vh;
+}
+
+.question-card {
+    position: relative;
+    background: white;
+    border: 2px dashed #e7c4ce;
+    border-radius: 30px;
+    padding: 45px 25px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(100, 55, 70, 0.06);
+}
+
+.sticker {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.question-card h2 {
+    font-size: 21px;
+    color: #704652;
+}
+
+.question-card p {
+    margin: 10px 0 25px;
+    font-size: 12px;
+    color: #a18189;
+}
+
+#clickBtn {
+    padding: 13px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #8e5665;
+    color: white;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#clickBtn:hover {
+    transform: translateY(-3px);
+}
+
+.vibe {
+    min-height: 60vh;
+}
+
+.vibe-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.vibe-card {
+    background: white;
+    border-radius: 25px;
+    padding: 30px 15px;
+    text-align: center;
+    border: 1px solid #f0e1e5;
+    transition: 0.3s;
+}
+
+.vibe-card:hover {
+    transform: translateY(-5px) rotate(-1deg);
+}
+
+.vibe-card span {
+    font-size: 28px;
+}
+
+.vibe-card p {
+    margin-top: 10px;
+    font-size: 11px;
+    color: #94727b;
+}
+
+.ending {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.floating-heart {
+    font-size: 65px;
+    color: #b36f80;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.ending > p {
+    font-size: 12px;
+    color: #9d7d85;
+    margin-top: 20px;
+}
+
+.ending h2 {
+    margin-top: 15px;
+    font-family: "Playfair Display", serif;
+    font-size: 38px;
+    line-height: 1.3;
+    color: #704652;
+}
+
+.ending h2 span {
+    color: #b36f80;
+    font-style: italic;
+}
+
+.end-line {
+    width: 60px;
+    height: 2px;
+    background: #d8a5b1;
+    margin: 25px auto;
+}
+
+.ending .made {
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 500px) {
+
+    section {
+        padding: 70px 17px;
+    }
+
+    .album {
+        width: 210px;
+        height: 210px;
+    }
+
+    .message-box h2 {
+        font-size: 25px;
+    }
+
+    .ending h2 {
+        font-size: 32px;
+    }
+}
+
+.lyrics-box {
+    width: 100%;
+    max-width: 470px;
+    margin-top: 25px;
+    padding: 25px 20px;
+
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #f1dfe4;
+    border-radius: 25px;
+
+    box-shadow: 0 12px 30px rgba(100, 55, 70, 0.06);
+}
+
+.lyrics-label {
+    text-align: center;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #b47c8a;
+    margin-bottom: 20px;
+}
+
+.lyrics-window {
+    min-height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+    overflow: hidden;
+}
+
+.lyric {
+    text-align: center;
+    transition: all 0.5s ease;
+    line-height: 1.5;
+}
+
+.lyric.previous,
+.lyric.next {
+    font-size: 11px;
+    color: #cdb5bc;
+    opacity: 0.6;
+}
+
+.lyric.active {
+    font-size: 18px;
+    font-weight: 600;
+    color: #805361;
+
+    transform: scale(1.05);
+}
+
+.lyrics-box.playing .lyric.active {
+    animation: lyricPop 0.5s ease;
+}
+
+@keyframes lyricPop {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1.05);
+    }
+}
